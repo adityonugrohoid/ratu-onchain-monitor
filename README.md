@@ -4,6 +4,18 @@
 
 On-chain token holder analytics and whale tracking using the Ankr API.
 
+![POC](https://img.shields.io/badge/readiness-poc-orange.svg)
+
+## Production Readiness
+
+**Level: POC**
+
+This system demonstrates prototyping-focused on-chain analytics with:
+- **Three-mode architecture** (Basic Info, Top Holders, Full Snapshot)
+- **Pagination handling** for tokens with millions of holders
+- **Known label identification** for exchanges and special addresses
+- **Snapshot comparison** for tracking holder changes over time
+
 > **System Prototyping Focus**: Real-time holder monitoring with paginated API queries and snapshot comparison
 
 ## Part of RATUProject
@@ -177,12 +189,21 @@ The tool automatically identifies known wallets:
 - **Exchanges**: Binance, OKX, Bybit
 - **Special**: Burn Address, Null Address
 
+## Notable Code
+
+This repository demonstrates prototyping-focused on-chain analytics patterns. See [NOTABLE_CODE.md](NOTABLE_CODE.md) for detailed code examples highlighting:
+
+- Three-mode architecture implementation
+- Pagination handling for large datasets
+- Known label identification system
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
-**Adityo Nugroho**
-- GitHub: https://github.com/adityonugrohoid
+**Adityo Nugroho**  
+- Portfolio: https://adityonugrohoid.github.io  
+- GitHub: https://github.com/adityonugrohoid  
 - LinkedIn: https://www.linkedin.com/in/adityonugrohoid/
