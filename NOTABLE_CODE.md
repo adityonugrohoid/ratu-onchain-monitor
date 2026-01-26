@@ -1,7 +1,5 @@
 # Notable Code: RATU On-chain Monitor
 
-**Production Readiness Level:** POC
-
 This document highlights key code sections that demonstrate the technical strengths and architectural patterns implemented in this on-chain analytics tool.
 
 ## Overview

@@ -1,26 +1,13 @@
 # RATU On-chain Monitor
 
-[Python 3.10+](https://www.python.org/downloads/) | [uv](https://github.com/astral-sh/uv) | [RATUProject](https://github.com/adityonugrohoid)
+![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)
+![RATUProject](https://img.shields.io/badge/project-RATU-blueviolet.svg)
 
 On-chain token holder analytics and whale tracking using the Ankr API.
 
-![POC](https://img.shields.io/badge/readiness-poc-orange.svg)
-
-## Production Readiness
-
-**Level: POC**
-
-This system demonstrates prototyping-focused on-chain analytics with:
-- **Three-mode architecture** (Basic Info, Top Holders, Full Snapshot)
-- **Pagination handling** for tokens with millions of holders
-- **Known label identification** for exchanges and special addresses
-- **Snapshot comparison** for tracking holder changes over time
-
+> 🔗 **Part of the RATUProject** | Real-time Automated Trading Unified  
 > **System Prototyping Focus**: Real-time holder monitoring with paginated API queries and snapshot comparison
-
-## Part of RATUProject
-
-This repository is part of **RATUProject** (Real-time Automated Trading Unified) - an open-source portfolio demonstrating real-time, event-driven system design for financial markets and blockchain integrations.
 
 ## Features
 
