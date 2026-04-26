@@ -6,11 +6,10 @@
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![RATU Project](https://img.shields.io/badge/project-RATU-blueviolet.svg)](https://github.com/adityonugrohoid/ratu-template)
-[![Status](https://img.shields.io/badge/status-active-success.svg)](#)
 
 **On-chain token holder analytics and whale tracker via Ankr API across BSC, Ethereum, Polygon, Arbitrum, Base, and Avalanche.**
 
-[Getting Started](#getting-started) | [Architecture](#architecture) | [Usage](#usage) | [Notable Code](#notable-code)
+[Getting Started](#getting-started) | [Usage](#usage) | [Architecture](#architecture)
 
 </div>
 
@@ -28,10 +27,9 @@
 - [Usage](#usage)
 - [How It Works](#how-it-works)
 - [Project Structure](#project-structure)
-- [Notable Code](#notable-code)
 - [Architectural Decisions](#architectural-decisions)
 - [Testing](#testing)
-- [Roadmap](#roadmap)
+- [Related Projects](#related-projects)
 - [License](#license)
 - [Author](#author)
 
@@ -253,13 +251,8 @@ ratu-onchain-monitor/
 │   └── test_ankr_client_api.py   # API contract tests
 ├── snapshots/              # JSON output (gitignored)
 ├── .env.example
-├── pyproject.toml          # uv-managed, Python 3.10+
-└── NOTABLE_CODE.md
+└── pyproject.toml          # uv-managed, Python 3.10+
 ```
-
-## Notable Code
-
-> See [NOTABLE_CODE.md](NOTABLE_CODE.md) for annotated walk-throughs of the three-mode dispatcher, pagination loop, and known-label identification system.
 
 ## Architectural Decisions
 
@@ -293,15 +286,14 @@ uv run pytest tests/ -v
 | `test_ankr_client.py` | Client unit tests — request building, response parsing |
 | `test_ankr_client_api.py` | Live API contract checks (requires `ANKR_API_KEY`) |
 
-## Roadmap
+## Related Projects
 
-- [x] Three-mode CLI (basic / holders / snapshot)
-- [x] Paginated holder retrieval
-- [x] Known-label enrichment
-- [x] JSON snapshot output
-- [ ] Snapshot diff command (compare two timestamps)
-- [ ] Telegram alerts on whale movement
-- [ ] More chains (Solana, Tron) once Ankr coverage stabilizes
+| Project | Description |
+|---------|-------------|
+| [ratu-template](https://github.com/adityonugrohoid/ratu-template) | RATU project scaffold and documentation |
+| [ratu-moon-radar](https://github.com/adityonugrohoid/ratu-moon-radar) | Low-cap token discovery and analytics |
+| [ratu-fix-bot](https://github.com/adityonugrohoid/ratu-fix-bot) | FIX protocol market data gateway |
+| [ratu-rest-api](https://github.com/adityonugrohoid/ratu-rest-api) | RATU unified REST API layer |
 
 ## License
 
