@@ -1,12 +1,12 @@
 <div align="center">
 
-# RATU On-chain Monitor
+# RATU Onchain Monitor
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+[![uv](https://img.shields.io/badge/uv-package%20manager-blueviolet)](https://github.com/astral-sh/uv)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**On-chain token holder analytics and whale tracker via Ankr API across BSC, Ethereum, Polygon, Arbitrum, Base, and Avalanche.**
+**On-chain token holder analytics and whale tracker via Ankr API across BSC, Ethereum, Polygon, Arbitrum, Base, and Avalanche**
 
 [Getting Started](#getting-started) | [Usage](#usage) | [Architecture](#architecture)
 
@@ -25,8 +25,8 @@
   - [Configuration](#configuration)
 - [Usage](#usage)
 - [How It Works](#how-it-works)
-- [Project Structure](#project-structure)
 - [Architectural Decisions](#architectural-decisions)
+- [Project Structure](#project-structure)
 - [Testing](#testing)
 - [Related Projects](#related-projects)
 - [License](#license)
@@ -178,25 +178,6 @@ Every holder address is checked against `KNOWN_LABELS` in `config.py`. Hits get 
 
 Snapshots are written to `snapshots/holders_<chain>_<timestamp>.json` with ISO-8601 timestamp, full holder list (raw + display balances), and aggregate stats - designed for offline diffing or whale-flow analysis.
 
-## Project Structure
-
-```
-ratu-onchain-monitor/
-├── src/onchain_monitor/
-│   ├── main.py             # CLI: basic / holders / snapshot dispatch
-│   ├── config.py           # CHAIN_CONFIGS, KNOWN_LABELS, env loading
-│   ├── ankr_client.py      # AnkrClient (httpx) + holder/price/metadata calls
-│   └── snapshot.py         # Pagination loop + JSON snapshot writer
-├── tests/
-│   ├── conftest.py
-│   ├── test_config.py            # config + label DB
-│   ├── test_ankr_client.py       # client unit tests
-│   └── test_ankr_client_api.py   # API contract tests
-├── snapshots/              # JSON output (gitignored)
-├── .env.example
-└── pyproject.toml          # uv-managed, Python 3.10+
-```
-
 ## Architectural Decisions
 
 ### 1. Three modes instead of one all-purpose command
@@ -217,6 +198,25 @@ ratu-onchain-monitor/
 
 **Reasoning:** Adding a new exchange wallet is a code change reviewed via PR rather than a YAML edit that might silently regress label coverage. The label set is small (~dozens) and changes infrequently.
 
+## Project Structure
+
+```
+ratu-onchain-monitor/
+├── src/onchain_monitor/
+│   ├── main.py             # CLI: basic / holders / snapshot dispatch
+│   ├── config.py           # CHAIN_CONFIGS, KNOWN_LABELS, env loading
+│   ├── ankr_client.py      # AnkrClient (httpx) + holder/price/metadata calls
+│   └── snapshot.py         # Pagination loop + JSON snapshot writer
+├── tests/
+│   ├── conftest.py
+│   ├── test_config.py            # config + label DB
+│   ├── test_ankr_client.py       # client unit tests
+│   └── test_ankr_client_api.py   # API contract tests
+├── snapshots/              # JSON output (gitignored)
+├── .env.example
+└── pyproject.toml          # uv-managed, Python 3.10+
+```
+
 ## Testing
 
 ```bash
@@ -228,6 +228,15 @@ uv run pytest tests/ -v
 | `test_config.py` | Chain config validation, `KNOWN_LABELS` lookup |
 | `test_ankr_client.py` | Client unit tests - request building, response parsing |
 | `test_ankr_client_api.py` | Live API contract checks (requires `ANKR_API_KEY`) |
+
+## Related Projects
+
+| Project | Description |
+|---------|-------------|
+| [ratu-template](https://github.com/adityonugrohoid/ratu-template) | Opinionated Python scaffold for real-time, event-driven trading and monitoring systems |
+| [ratu-moon-radar](https://github.com/adityonugrohoid/ratu-moon-radar) | Multi-chain DEX pair scanner and trending-token detector via Moralis API |
+| [ratu-rest-api](https://github.com/adityonugrohoid/ratu-rest-api) | Binance market snapshot client for price, depth, trades, and multi-timeframe klines |
+| [ratu-fix-bot](https://github.com/adityonugrohoid/ratu-fix-bot) | Low-latency Binance FIX 4.4 bot with ED25519 auth and a spread market-making loop |
 
 ## License
 
